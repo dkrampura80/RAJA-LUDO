@@ -113,6 +113,25 @@ app.post('/api/login', (req, res) => {
 app.post('/api/logout', (req, res) => req.session.destroy(() => res.json({ ok: true })));
 app.get('/api/me', (req, res) => res.json({ user: me(req) }));
 
+function requireAdmin(req, res, next) {
+  const user = me(req);
+  const adminPhone = cleanPhone(process.env.ADMIN_PHONE);
+
+  if (!user || user.phone !== adminPhone) {
+    return res.status(403).json({ error: 'Admin access denied' });
+  }
+
+  next();
+}
+
+app.get('/api/admin/users', requireAdmin, (req, res) => {
+  const users = db.prepare(
+    'SELECT id, phone, name, created_at FROM users ORDER BY id DESC'
+  ).all();
+
+  res.json({ users });
+});
+
 function makeCode() {
   let c;
   do c = 'RAJA' + Math.floor(100 + Math.random() * 900);
