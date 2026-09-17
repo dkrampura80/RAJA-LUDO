@@ -37,7 +37,15 @@
 <div class="chat" id="chat"></div><div class="chatrow"><input class="input" id="chatInput" placeholder="Room chat..."><button class="play" onclick="sendChat()">Send</button></div>
 </div></div></section>
 
-<div class="drawer" id="drawer"><h2 style="text-align:center">👑 RAJA MENU</h2>
+<main id="admin" class="page">
+  <div class="card">
+    <h2>👑 Admin Panel</h2>
+    <button class="btn" onclick="loadAdminUsers()">
+      View Users
+    </button>
+    <div id="adminUsers"></div>
+  </div>
+</main> <div class="drawer" id="drawer"><h2 style="text-align:center">👑 RAJA MENU</h2> 
 <button onclick="nav('profile');drawer(0)">👤 My Profile</button><button onclick="nav('home');drawer(0)">🎲 Play</button><button onclick="toast('Virtual Wallet: 1,250 coins');drawer(0)">🪙 My Wallet</button><button onclick="toast('Invite link can be shared after deployment');drawer(0)">🔗 Invite Friends</button><button onclick="nav('leader');drawer(0)">🏆 Leaderboard</button><button onclick="toast('Game history module ready');drawer(0)">🕘 Game History</button><button onclick="toast('Achievements opened');drawer(0)">🏅 Achievements</button><button onclick="toast('Notifications enabled');drawer(0)">🔔 Notifications</button><button onclick="toast('Hindi / English');drawer(0)">🌐 Language</button><button onclick="toast('Support chat ready');drawer(0)">🛟 Support</button><button onclick="toast('Theme settings ready');drawer(0)">⚙️ Settings</button><button onclick="drawer(0)">← Back</button></div>
 
 <nav class="bottom"><button onclick="nav('home')">⌂<small>Home</small></button><button onclick="showJoin()">🎲<small>Play</small></button><button onclick="toast('Share Room Code with friends')">👥<small>Friends</small></button><button onclick="nav('leader')">🏆<small>Rank</small></button><button onclick="nav('profile')">◯<small>Profile</small></button></nav>
