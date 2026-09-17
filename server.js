@@ -44,7 +44,7 @@ const sessionMiddleware = session({
   }
 });
 app.use(sessionMiddleware);
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname));
 
 const rooms = new Map();
 const colors = ['red', 'green', 'yellow', 'blue'];
